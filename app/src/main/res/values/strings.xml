@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">LostAndFound</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="menu_items">
+    <item>Map</item>
+    <item>Lost</item>
+    <item>Found</item>
+</string-array>
+
 </resources>
