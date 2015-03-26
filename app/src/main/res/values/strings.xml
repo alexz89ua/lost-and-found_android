@@ -6,6 +6,86 @@
     <item>Map</item>
     <item>Lost</item>
     <item>Found</item>
+    <item>Profile</item>
 </string-array>
+
+    <string-array name="tabs">
+        <item>Загублені речі</item>
+        <item>Знайдені речі</item>
+        <item>Не активовані речі</item>
+        <item>Не промодеровані речі</item>
+    </string-array>
+
+    <string-array name="lost_list_items">
+        <item>Загублені речі 1</item>
+        <item>Загублені речі 2</item>
+        <item>Загублені речі 3</item>
+        <item>Загублені речі 4</item>
+        <item>Загублені речі 5</item>
+        <item>Загублені речі 6</item>
+        <item>Загублені речі 7</item>
+        <item>Загублені речі 8</item>
+        <item>Загублені речі 9</item>
+        <item>Загублені речі 10</item>
+        <item>Загублені речі 11</item>
+        <item>Загублені речі 12</item>
+        <item>Загублені речі 13</item>
+        <item>Загублені речі 14</item>
+        <item>Загублені речі 15</item>
+    </string-array>
+
+    <string-array name="found_list_items">
+        <item>Знайдені речі 1</item>
+        <item>Знайдені речі 2</item>
+        <item>Знайдені речі 3</item>
+        <item>Знайдені речі 4</item>
+        <item>Знайдені речі 5</item>
+        <item>Знайдені речі 6</item>
+        <item>Знайдені речі 7</item>
+        <item>Знайдені речі 8</item>
+        <item>Знайдені речі 9</item>
+        <item>Знайдені речі 10</item>
+        <item>Знайдені речі 11</item>
+        <item>Знайдені речі 12</item>
+        <item>Знайдені речі 13</item>
+        <item>Знайдені речі 14</item>
+        <item>Знайдені речі 15</item>
+    </string-array>
+
+    <string-array name="not_activated_list_items">
+        <item>Не активовані речі 1</item>
+        <item>Не активовані речі 2</item>
+        <item>Не активовані речі 3</item>
+        <item>Не активовані речі 4</item>
+        <item>Не активовані речі 5</item>
+        <item>Не активовані речі 6</item>
+        <item>Не активовані речі 7</item>
+        <item>Не активовані речі 8</item>
+        <item>Не активовані речі 9</item>
+        <item>Не активовані речі 10</item>
+        <item>Не активовані речі 11</item>
+        <item>Не активовані речі 12</item>
+        <item>Не активовані речі 13</item>
+        <item>Не активовані речі 14</item>
+        <item>Не активовані речі 15</item>
+    </string-array>
+
+    <string-array name="not_moderated_list_items">
+        <item>Не промодеровані речі 1</item>
+        <item>Не промодеровані речі 2</item>
+        <item>Не промодеровані речі 3</item>
+        <item>Не промодеровані речі 4</item>
+        <item>Не промодеровані речі 5</item>
+        <item>Не промодеровані речі 6</item>
+        <item>Не промодеровані речі 7</item>
+        <item>Не промодеровані речі 8</item>
+        <item>Не промодеровані речі 9</item>
+        <item>Не промодеровані речі 10</item>
+        <item>Не промодеровані речі 11</item>
+        <item>Не промодеровані речі 12</item>
+        <item>Не промодеровані речі 13</item>
+        <item>Не промодеровані речі 14</item>
+        <item>Не промодеровані речі 15</item>
+    </string-array>
 
 </resources>

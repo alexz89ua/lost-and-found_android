@@ -1,5 +1,6 @@
 package com.stfalcon.lostandfound;
 
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
 
-    private DrawerLayout mDrawer;
+    protected DrawerLayout mDrawer;
     private ListView mListView;
     private String[] menuItems;
 
@@ -35,8 +36,9 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
-                    case 1:
-                        //open activity
+                    case 3:
+                        Intent myIntent = new Intent(MainActivity.this,ProfileActivity.class);
+                        MainActivity.this.startActivity(myIntent);
                         break;
                 }
             }
