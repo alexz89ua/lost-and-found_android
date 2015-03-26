@@ -1,9 +1,6 @@
 package com.stfalcon.lostandfound;
 
-import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,16 +23,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 
-public class MainActivity extends ActionBarActivity implements OnMapReadyCallback, LocationListener {
+public class MainActivity extends ActionBarActivity implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks {
 
     private DrawerLayout mDrawer;
     private ListView mListView;
     private String[] menuItems;
     private SupportMapFragment mapFragment;
 
-    private GoogleMap map;
-    private LocationManager locationManager;
-    private String provider;
+    private GoogleMap mMap;
+    private GoogleApiClient mGoogleApiClient;
+    private LocationRequest mLocationRequest;
+    private Location mCurrentLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,43 +67,61 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         fragmentTransaction.add(R.id.container, mapFragment);
         fragmentTransaction.commit();
 
-        locationManager = (LocationManager) getSystemService(this.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        provider = locationManager.getBestProvider(criteria, false);
+        buildGoogleApiClient();
+        mGoogleApiClient.connect();
+
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        locationManager.requestLocationUpdates(provider, 3000, 1, this);
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .build();
+    }
+
+    protected void startLocationUpdates() {
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        locationManager.removeUpdates(this);
+        LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mGoogleApiClient.isConnected()) {
+            startLocationUpdates();
+        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        map = googleMap;
-        map.setMyLocationEnabled(true);
-        Location location = location = locationManager.getLastKnownLocation(provider);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16));
+        mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        startLocationUpdates();
+        mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        if(mCurrentLocation != null) {
+            onLocationChanged(mCurrentLocation);
+        }
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        map.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(location.getLatitude(), location.getLongitude())));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()),16));
     }
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {}
-
-    @Override
-    public void onProviderEnabled(String provider) {}
-
-    @Override
-    public void onProviderDisabled(String provider) {}
+    public void onConnectionSuspended(int i) {}
 }
 
