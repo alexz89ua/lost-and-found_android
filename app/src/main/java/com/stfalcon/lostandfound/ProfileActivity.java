@@ -53,7 +53,7 @@ public class ProfileActivity extends MainActivity {
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter{
-
+        int tabCount;
         String[] tabs;
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -62,30 +62,21 @@ public class ProfileActivity extends MainActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position == 0) // if the position is 0 we are returning the First tab
-            {
-                MyLostThingsActivity tab1 = new MyLostThingsActivity();
-                return tab1;
-            }
-            else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
-                if(position==1)
-                {
+            switch (position){
+                case 0:
+                    MyLostThingsActivity tab1 = new MyLostThingsActivity();
+                    return tab1;
+                case 1:
                     MyFoundThingsActivity tab2 = new MyFoundThingsActivity();
                     return tab2;
-                }
-                else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
-                    if(position==2)
-                    {
-                        MyNotActivatedThingsActivity tab3 = new MyNotActivatedThingsActivity();
-                        return tab3;
-                    }
-                    else             // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
-                        if(position==3)
-                        {
-                            MyNotModeratedThingsActivity tab4 = new MyNotModeratedThingsActivity();
-                            return tab4;
-                        }
-                        else return null;
+                case 2:
+                    MyNotActivatedThingsActivity tab3 = new MyNotActivatedThingsActivity();
+                    return tab3;
+                case 3:
+                    MyNotModeratedThingsActivity tab4 = new MyNotModeratedThingsActivity();
+                    return tab4;
+            }
+            return  null;
         }
 
         @Override

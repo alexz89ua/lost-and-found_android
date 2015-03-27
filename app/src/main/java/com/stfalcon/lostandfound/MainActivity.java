@@ -1,6 +1,9 @@
 package com.stfalcon.lostandfound;
 
+
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,7 +17,7 @@ import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
 
-    protected DrawerLayout mDrawer;
+    private DrawerLayout mDrawer;
     private ListView mListView;
     private String[] menuItems;
 
@@ -30,7 +33,6 @@ public class MainActivity extends ActionBarActivity {
         // Set the adapter for the list view
         mListView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, menuItems));
-
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
