@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical|center_horizontal">
 
-    <ListView
-        android:id="@+id/my_not_activated_list"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        />
+    <FrameLayout
+        android:id="@+id/not_activated_list_fragment"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0px" />
 
 </LinearLayout>

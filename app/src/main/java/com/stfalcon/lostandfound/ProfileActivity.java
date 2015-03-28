@@ -1,28 +1,13 @@
 package com.stfalcon.lostandfound;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.stfalcon.lostandfound.profile.MyFoundThingsActivity;
 import com.stfalcon.lostandfound.profile.MyLostThingsActivity;
@@ -30,55 +15,51 @@ import com.stfalcon.lostandfound.profile.MyNotActivatedThingsActivity;
 import com.stfalcon.lostandfound.profile.MyNotModeratedThingsActivity;
 import com.stfalcon.lostandfound.tabs.SlidingTabLayout;
 
-import java.util.List;
-import java.util.Vector;
-
 /**
  * Created by shpak on 26.03.15.
  */
-public class ProfileActivity extends MainActivity {
+public class ProfileActivity extends Fragment {
     private ViewPager mPager;
     private SlidingTabLayout mTabs;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        Intent intent=getIntent();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_layout);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.profile_layout, container, false);
+    }
 
-        mPager=(ViewPager) findViewById(R.id.pager);
-        mPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
-        mTabs=(SlidingTabLayout) findViewById(R.id.tabs);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        mPager = (ViewPager) view.findViewById(R.id.pager);
+        mPager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
+        mTabs = (SlidingTabLayout) view.findViewById(R.id.tabs);
         mTabs.setViewPager(mPager);
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter{
-        int tabCount;
-        String[] tabs;
+        int tabCount=4;
+        String[] tabs= getResources().getStringArray(R.array.tabs);
+
+
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
-            tabs= getResources().getStringArray(R.array.tabs);
         }
 
         @Override
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    MyLostThingsActivity tab1 = new MyLostThingsActivity();
-                    return tab1;
+                    return new MyLostThingsActivity();
                 case 1:
-                    MyFoundThingsActivity tab2 = new MyFoundThingsActivity();
-                    return tab2;
+                    return  new MyFoundThingsActivity();
                 case 2:
-                    MyNotActivatedThingsActivity tab3 = new MyNotActivatedThingsActivity();
-                    return tab3;
+                    return new MyNotActivatedThingsActivity();
                 case 3:
-                    MyNotModeratedThingsActivity tab4 = new MyNotModeratedThingsActivity();
-                    return tab4;
+                    return new MyNotModeratedThingsActivity();
+                default:return  null;
             }
-            return  null;
-        }
 
+        }
         @Override
         public CharSequence getPageTitle(int position) {
             return tabs[position];
@@ -86,11 +67,7 @@ public class ProfileActivity extends MainActivity {
 
         @Override
         public int getCount() {
-            return 4;
+            return tabCount;
         }
     }
-
-
-
-
 }
