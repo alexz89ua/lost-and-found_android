@@ -130,7 +130,7 @@ public class MainActivity extends ActionBarActivity {
                     Log.d(LOG_TAG, "answer: " + answer);
                     JSONArray translations = faq.getJSONArray("translations");
                     for(int j=0;j<translations.length();j++){
-                        JSONObject translation =translations.getJSONObject(i);
+                        JSONObject translation =translations.getJSONObject(j);
                         locale=translation.getString("locale");
                         field=translation.getString("field");
                         content=translation.getString("content");
