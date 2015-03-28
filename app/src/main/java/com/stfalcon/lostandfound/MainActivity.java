@@ -25,6 +25,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class MainActivity extends ActionBarActivity implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks {
 
+    private static String CURRENT_LOCATION = "CURRENT_LOCATION";
+
     private DrawerLayout mDrawer;
     private ListView mListView;
     private String[] menuItems;
@@ -38,6 +40,8 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        updateValuesFromBundle(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -105,15 +109,15 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
+        if(mCurrentLocation != null) {
+            onLocationChanged(mCurrentLocation);
+        }
     }
 
     @Override
     public void onConnected(Bundle bundle) {
-        startLocationUpdates();
         mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if(mCurrentLocation != null) {
-            onLocationChanged(mCurrentLocation);
-        }
+        startLocationUpdates();
     }
 
     @Override
@@ -123,5 +127,20 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
 
     @Override
     public void onConnectionSuspended(int i) {}
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putParcelable(CURRENT_LOCATION, mCurrentLocation);
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    private void updateValuesFromBundle(Bundle savedInstanceState) {
+        if(savedInstanceState != null) {
+            if(savedInstanceState.keySet().contains(CURRENT_LOCATION)) {
+                mCurrentLocation = savedInstanceState.getParcelable(CURRENT_LOCATION);
+            }
+        }
+    }
+
 }
 
