@@ -3,9 +3,11 @@ package com.stfalcon.lostandfound.profile;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ListView;
 
 import com.stfalcon.lostandfound.R;
@@ -16,6 +18,9 @@ import com.stfalcon.lostandfound.refresh_list.ListFragment;
  * Created by hp1 on 21-01-2015.
  */
 public class MyLostThingsActivity extends Fragment {
+    ListView listView;
+    SwipeRefreshLayout swipeRefreshLayout;
+    Adapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
