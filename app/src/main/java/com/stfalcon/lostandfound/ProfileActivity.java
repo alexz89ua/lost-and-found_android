@@ -9,11 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.stfalcon.lostandfound.profile.MyFoundThingsActivity;
-import com.stfalcon.lostandfound.profile.MyLostThingsActivity;
-import com.stfalcon.lostandfound.profile.MyMessageActivity;
-import com.stfalcon.lostandfound.profile.MyNotActivatedThingsActivity;
-import com.stfalcon.lostandfound.profile.MyNotModeratedThingsActivity;
+import com.stfalcon.lostandfound.profile.MyTestTabActivity;
 import com.stfalcon.lostandfound.tabs.SlidingTabLayout;
 
 /**
@@ -50,15 +46,15 @@ public class ProfileActivity extends Fragment {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return new MyLostThingsActivity();
+                    return new MyTestTabActivity();
                 case 1:
-                    return  new MyFoundThingsActivity();
+                    return new MyTestTabActivity();
                 case 2:
-                    return new MyNotActivatedThingsActivity();
+                    return new MyTestTabActivity();
                 case 3:
-                    return new MyNotModeratedThingsActivity();
+                    return new MyTestTabActivity();
                 case 4:
-                    return new MyMessageActivity();
+                    return new MyTestTabActivity();
                 default:return  null;
             }
 

@@ -17,24 +17,6 @@
         <item>Повідомлення</item>
     </string-array>
 
-    <string-array name="list_items">
-        <item>Речі 1</item>
-        <item>Речі 2</item>
-        <item>Речі 3</item>
-        <item>Речі 4</item>
-        <item>Речі 5</item>
-        <item>Речі 6</item>
-        <item>Речі 7</item>
-        <item>Речі 8</item>
-        <item>Речі 9</item>
-        <item>Речі 10</item>
-        <item>Речі 11</item>
-        <item>Речі 12</item>
-        <item>Речі 13</item>
-        <item>Речі 14</item>
-        <item>Речі 15</item>
-    </string-array>
-
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
