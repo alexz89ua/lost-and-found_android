@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.stfalcon.lostandfound.profile.MyFoundThingsActivity;
 import com.stfalcon.lostandfound.profile.MyLostThingsActivity;
+import com.stfalcon.lostandfound.profile.MyMessageActivity;
 import com.stfalcon.lostandfound.profile.MyNotActivatedThingsActivity;
 import com.stfalcon.lostandfound.profile.MyNotModeratedThingsActivity;
 import com.stfalcon.lostandfound.tabs.SlidingTabLayout;
@@ -37,7 +38,7 @@ public class ProfileActivity extends Fragment {
     }
 
     class MyPagerAdapter extends FragmentPagerAdapter{
-        int tabCount=4;
+        int tabCount=5;
         String[] tabs= getResources().getStringArray(R.array.tabs);
 
 
@@ -56,6 +57,8 @@ public class ProfileActivity extends Fragment {
                     return new MyNotActivatedThingsActivity();
                 case 3:
                     return new MyNotModeratedThingsActivity();
+                case 4:
+                    return new MyMessageActivity();
                 default:return  null;
             }
 

@@ -14,6 +14,7 @@
         <item>Знайдені речі</item>
         <item>Не активовані речі</item>
         <item>Не промодеровані речі</item>
+        <item>Повідомлення</item>
     </string-array>
 
     <string-array name="list_items">

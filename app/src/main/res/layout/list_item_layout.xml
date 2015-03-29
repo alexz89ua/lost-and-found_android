@@ -17,7 +17,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/imageView2"
-            android:src="#ffff7c05" />
+            android:src="@mipmap/ic_launcher"
+            android:longClickable="false" />
 
         <LinearLayout
             android:orientation="vertical"
