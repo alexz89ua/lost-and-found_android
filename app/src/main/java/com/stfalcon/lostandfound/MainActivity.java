@@ -12,9 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.stfalcon.lostandfound.profile.MyFoundThingsActivity;
-import com.stfalcon.lostandfound.profile.MyLostThingsActivity;
 import com.stfalcon.lostandfound.profile.MyNotActivatedThingsActivity;
 
 import org.json.JSONArray;
@@ -47,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
         mListView.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, menuItems));
 
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -54,13 +53,10 @@ public class MainActivity extends ActionBarActivity {
                 Fragment fragment=null;
                 switch (position){
                     case 0:
-                        fragment= new MyLostThingsActivity();
                         break;
                     case 1:
-                        fragment= new MyFoundThingsActivity();
                         break;
                     case 2:
-                        fragment= new MyNotActivatedThingsActivity();
                         break;
                     case 3:
                         fragment=new ProfileActivity();
@@ -73,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
         });
 
     }
-
+////////////////////////////
     private class ParseTask extends AsyncTask<Void, Void, String> {
 
         HttpURLConnection urlConnection = null;
@@ -95,9 +91,8 @@ public class MainActivity extends ActionBarActivity {
                 reader = new BufferedReader(new InputStreamReader(inputStream));
 
                 String line;
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line);
-                }
+                line = reader.readLine();
+                buffer.append(line);
 
                 resultJson = buffer.toString();
 
