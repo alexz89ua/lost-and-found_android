@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- The main content view -->
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/map"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.MapFragment"/>
+        android:id="@+id/container">
+
+    </FrameLayout>
     <!-- The navigation drawer -->
     <ListView
         android:id="@+id/left_drawer"
