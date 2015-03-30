@@ -115,7 +115,6 @@ public class MainActivity extends ActionBarActivity {
                 dataJsonObj = new JSONObject(strJson);
                 JSONArray faqs = dataJsonObj.getJSONArray("faqs");
                 for (int i = 0; i < faqs.length(); i++) {
-
                     JSONObject faq = faqs.getJSONObject(i);
                     question=faq.getString("question");
                     answer=faq.getString("answer");

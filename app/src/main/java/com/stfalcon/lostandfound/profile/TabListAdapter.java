@@ -47,7 +47,6 @@ public class TabListAdapter extends BaseAdapter {
             view=layoutInflater.inflate(R.layout.list_item_layout,_viewGroup,false);
         }
         TabContent cnt=getTabContent(_position);
-
         ((TextView)view.findViewById(R.id.name)).setText(cnt.getName());
         ((TextView)view.findViewById(R.id.time)).setText(cnt.getTime());
         ((TextView)view.findViewById(R.id.text)).setText(cnt.getText());

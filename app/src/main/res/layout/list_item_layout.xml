@@ -79,7 +79,7 @@
         <View
             android:layout_width="fill_parent"
             android:layout_height="2dp"
-            android:background="@android:color/darker_gray" />
+            android:background="#ffd5d5d5" />
 
     </LinearLayout>
 
