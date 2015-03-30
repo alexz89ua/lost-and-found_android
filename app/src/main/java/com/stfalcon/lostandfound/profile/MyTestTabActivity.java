@@ -37,12 +37,9 @@ public class MyTestTabActivity extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.test_refresh_layout);
-
         fillData();
         listView=(ListView)view.findViewById(R.id.test_listview);
-
         setupAdapter();
-
         mSwipeRefreshLayout.setColorSchemeResources(R.color.color_scheme_1_1, R.color.color_scheme_1_2,
                 R.color.color_scheme_1_3, R.color.color_scheme_1_4);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
