@@ -1,11 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">LostAndFound</string>
     <string name="action_settings">Settings</string>
 
     <string-array name="menu_items">
-    <item>Map</item>
-    <item>Lost</item>
-    <item>Found</item>
-</string-array>
+        <item>Map</item>
+        <item>Lost</item>
+        <item>Found</item>
+        <item>FAQ</item>
+    </string-array>
+
+    <string name="title_activity_faq">FAQ</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

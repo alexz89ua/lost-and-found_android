@@ -1,5 +1,9 @@
 package com.stfalcon.lostandfound;
 
+import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,10 +21,14 @@ public class MainActivity extends ActionBarActivity {
     private ListView mListView;
     private String[] menuItems;
 
+    private FaqActivity faqActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        faqActivity = new FaqActivity();
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mListView = (ListView) findViewById(R.id.left_drawer);
@@ -35,9 +43,10 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
-                    case 1:
-                        //open activity
-                        break;
+                    case 3: {
+                        Intent intent = new Intent(MainActivity.this, FaqActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
