@@ -44,7 +44,7 @@ public class LoginActivity extends ActionBarActivity {
                     preferenceSettings =getPreferences(PREFERENCE_MODE_PRIVATE);
                     preferenceEditor=preferenceSettings.edit();
                     preferenceEditor.putString("user_name",user.getName());
-                    preferenceEditor.putString("user_name",user.getId());
+                    preferenceEditor.putString("user_id",user.getId());
                     preferenceEditor.apply();
 
                     finish();
