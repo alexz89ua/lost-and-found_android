@@ -47,7 +47,8 @@ public class LoginActivity extends ActionBarActivity {
                     preferenceEditor.putString("user_id",user.getId());
                     preferenceEditor.apply();
 
-                    finish();
+                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    
                 }
             }
         });
