@@ -1,4 +1,4 @@
-package com.stfalcon.lostandfound;
+package com.stfalcon.lostandfound.ui.activity;
 
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.stfalcon.lostandfound.R;
 
 
 public class MainActivity extends ActionBarActivity {
