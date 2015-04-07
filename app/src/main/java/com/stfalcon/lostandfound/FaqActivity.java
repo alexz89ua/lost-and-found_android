@@ -32,8 +32,6 @@ public class FaqActivity extends ActionBarActivity {
     private Translation translationObj;
     private RecyclerAdapter mAdapter;
 
-    public static String LOG_TAG = "my_log";
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -49,8 +47,8 @@ public class FaqActivity extends ActionBarActivity {
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getApplicationContext()));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        Asyntask asyntask = new Asyntask();
-        asyntask.execute();
+        Asyntask parseFaqJSON = new Asyntask();
+        parseFaqJSON.execute();
     }
 
     public class SimpleDividerItemDecoration extends RecyclerView.ItemDecoration {
@@ -116,7 +114,6 @@ public class FaqActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(String strJson) {
             super.onPostExecute(strJson);
-            //Log.d(LOG_TAG, strJson);
 
             JSONObject dataJsonObj = null;
             try {

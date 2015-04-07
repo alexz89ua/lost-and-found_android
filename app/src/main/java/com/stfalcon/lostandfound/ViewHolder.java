@@ -9,7 +9,6 @@ import android.widget.TextView;
 public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     protected TextView questionTextView;
     protected TextView answerTextView;
-    Animation animation;
 
     public ViewHolder(View view) {
         super(view);

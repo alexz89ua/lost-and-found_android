@@ -2,9 +2,6 @@ package com.stfalcon.lostandfound;
 
 import java.util.ArrayList;
 
-/**
- * Created by Acer2 on 28.03.2015.
- */
 public class Faq {
     private int id;
     private String question, answer, enabled;
