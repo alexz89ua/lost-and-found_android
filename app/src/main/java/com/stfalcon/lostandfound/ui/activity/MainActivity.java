@@ -1,33 +1,31 @@
 package com.stfalcon.lostandfound.ui.activity;
 
 import android.location.Location;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.stfalcon.lostandfound.R;
-
-
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.stfalcon.lostandfound.R;
 
 
 public class MainActivity extends ActionBarActivity implements OnMapReadyCallback, LocationListener, GoogleApiClient.ConnectionCallbacks {
 
-    private static String CURRENT_LOCATION = "CURRENT_LOCATION";
+    private static final long REQUEST_INTERVAL = 10000;
+    private static final String CURRENT_LOCATION = "CURRENT_LOCATION";
 
     private DrawerLayout mDrawer;
     private ListView mListView;
@@ -45,7 +43,6 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         updateValuesFromBundle(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        
 
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -60,7 +57,7 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 1:
                         //open activity
                         break;
@@ -79,7 +76,7 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         mGoogleApiClient.connect();
 
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(10000);
+        mLocationRequest.setInterval(REQUEST_INTERVAL);
         mLocationRequest.setFastestInterval(5000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
@@ -113,7 +110,7 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMyLocationEnabled(true);
-        if(mCurrentLocation != null) {
+        if (mCurrentLocation != null) {
             onLocationChanged(mCurrentLocation);
         }
     }
@@ -126,11 +123,12 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
 
     @Override
     public void onLocationChanged(Location location) {
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()),16));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16));
     }
 
     @Override
-    public void onConnectionSuspended(int i) {}
+    public void onConnectionSuspended(int i) {
+    }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -139,8 +137,8 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
     }
 
     private void updateValuesFromBundle(Bundle savedInstanceState) {
-        if(savedInstanceState != null) {
-            if(savedInstanceState.keySet().contains(CURRENT_LOCATION)) {
+        if (savedInstanceState != null) {
+            if (savedInstanceState.keySet().contains(CURRENT_LOCATION)) {
                 mCurrentLocation = savedInstanceState.getParcelable(CURRENT_LOCATION);
             }
         }
