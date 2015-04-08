@@ -1,7 +1,6 @@
 package com.stfalcon.lostandfound.ui.activity;
 
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -37,19 +36,20 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                Fragment fragment=null;
-                switch (position){
+                Fragment fragment = null;
+                switch (position) {
                     case 0:
+                        fragment = new MapFragment();
                         break;
                     case 1:
                         break;
                     case 2:
                         break;
                     case 3:
-                        fragment=new ProfileActivity();
+                        fragment = new ProfileActivity();
                         break;
                 }
-                transaction.replace(R.id.content_fragment, fragment);
+                transaction.replace(R.id.container, fragment);
                 transaction.commit();
                 mDrawer.closeDrawers();
             }

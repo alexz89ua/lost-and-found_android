@@ -9,7 +9,7 @@
     <!-- The main content view -->
 
     <FrameLayout
-        android:id="@+id/content_fragment"
+        android:id="@+id/container"
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="0px" />
