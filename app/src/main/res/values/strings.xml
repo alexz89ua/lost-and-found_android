@@ -7,5 +7,11 @@
     <item>Lost</item>
     <item>Found</item>
 </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="fb_api_key">1578666649024920</string>
+    <string name="bt_map">Map Activity</string>
+
 
 </resources>

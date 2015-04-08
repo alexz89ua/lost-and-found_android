@@ -1,8 +1,8 @@
-package com.stfalcon.lostandfound;
+package com.stfalcon.lostandfound.ui.activity;
 
 import android.location.Location;
-
 import android.support.v4.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.stfalcon.lostandfound.R;
 
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -43,6 +45,8 @@ public class MainActivity extends ActionBarActivity implements OnMapReadyCallbac
         updateValuesFromBundle(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        
+
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mListView = (ListView) findViewById(R.id.left_drawer);
