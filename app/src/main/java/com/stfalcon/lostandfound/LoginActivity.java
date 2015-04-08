@@ -48,7 +48,7 @@ public class LoginActivity extends ActionBarActivity {
                     preferenceEditor.apply();
 
                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                    
+
                 }
             }
         });
