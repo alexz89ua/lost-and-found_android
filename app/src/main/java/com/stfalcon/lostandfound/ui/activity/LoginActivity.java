@@ -51,7 +51,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
                     preferenceEditor.apply();
 
                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                    
+
                 }
             }
         });
