@@ -1,0 +1,16 @@
+<android:android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/test_refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListView
+        android:id="@+id/test_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:dividerHeight="0dp"
+        android:divider="@android:color/transparent">
+    </ListView>
+
+</android:android.support.v4.widget.SwipeRefreshLayout>
