@@ -8,6 +8,14 @@
     <item>Found</item>
     <item>Profile</item>
 </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="fb_api_key">1578666649024920</string>
+
+
+
+
 
     <string-array name="tabs">
         <item>Загублені речі</item>

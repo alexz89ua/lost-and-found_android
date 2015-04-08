@@ -1,6 +1,7 @@
 package com.stfalcon.lostandfound;
 
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -21,6 +22,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mListView = (ListView) findViewById(R.id.left_drawer);
         menuItems = getResources().getStringArray(R.array.menu_items);
