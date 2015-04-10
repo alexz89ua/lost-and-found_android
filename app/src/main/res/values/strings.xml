@@ -3,11 +3,12 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="menu_items">
-    <item>Map</item>
-    <item>Lost</item>
-    <item>Found</item>
-    <item>Profile</item>
-</string-array>
+        <item>Map</item>
+        <item>Lost</item>
+        <item>Found</item>
+        <item>Profile</item>
+        <item>FAQ</item>
+    </string-array>
     <string name="title_activity_login">LoginActivity</string>
 
     <string name="hello_world">Hello world!</string>
@@ -23,7 +24,6 @@
         <item>Повідомлення</item>
     </string-array>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_faq">FAQ</string>
 
 </resources>

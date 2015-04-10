@@ -1,4 +1,4 @@
-package com.stfalcon.lostandfound.ui.activity;
+package com.stfalcon.lostandfound.ui.fragments;
 
 import android.location.Location;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.stfalcon.lostandfound.ui.activity;
+package com.stfalcon.lostandfound.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,7 +16,7 @@ import com.stfalcon.lostandfound.tabs.SlidingTabLayout;
 /**
  * Created by shpak on 26.03.15.
  */
-public class ProfileActivity extends Fragment {
+public class ProfileFragment extends Fragment {
     private ViewPager mPager;
     private SlidingTabLayout mTabs;
 
