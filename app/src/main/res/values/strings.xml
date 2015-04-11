@@ -17,5 +17,27 @@
     <string name="title_activity_ifound">IFound:)</string>
 
     <string name="hello_world">Hello world!</string>
+        <item>Map</item>
+        <item>Lost</item>
+        <item>Found</item>
+        <item>Profile</item>
+        <item>FAQ</item>
+    </string-array>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="fb_api_key">1578666649024920</string>
+    <string name="bt_map">Map Activity</string>
+
+
+    <string-array name="tabs">
+        <item>Загублені речі</item>
+        <item>Знайдені речі</item>
+        <item>Не активовані речі</item>
+        <item>Не промодеровані речі</item>
+        <item>Повідомлення</item>
+    </string-array>
+
+    <string name="title_activity_faq">FAQ</string>
 
 </resources>
