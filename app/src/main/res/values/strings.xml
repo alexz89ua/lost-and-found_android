@@ -6,6 +6,8 @@
     <item>Map</item>
     <item>Lost</item>
     <item>Found</item>
+        <item>Profile</item>
+        <item>FAQ</item>
 </string-array>
     <string-array name="dop_doun_menu">
         <item>1</item>
@@ -16,13 +18,9 @@
 </string-array>
     <string name="title_activity_ifound">IFound:)</string>
 
-    <string name="hello_world">Hello world!</string>
-        <item>Map</item>
-        <item>Lost</item>
-        <item>Found</item>
-        <item>Profile</item>
-        <item>FAQ</item>
-    </string-array>
+
+
+
     <string name="title_activity_login">LoginActivity</string>
 
     <string name="hello_world">Hello world!</string>
