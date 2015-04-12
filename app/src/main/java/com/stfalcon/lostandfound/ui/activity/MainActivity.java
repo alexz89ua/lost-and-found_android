@@ -1,5 +1,6 @@
 package com.stfalcon.lostandfound.ui.activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 
 import com.stfalcon.lostandfound.*;
 import com.stfalcon.lostandfound.ui.fragments.FaqFragment;
+import com.stfalcon.lostandfound.ui.fragments.FoundFragment;
 import com.stfalcon.lostandfound.ui.fragments.MapFragment;
 import com.stfalcon.lostandfound.ui.fragments.ProfileFragment;
 
@@ -48,6 +50,7 @@ public class MainActivity extends ActionBarActivity {
                     case 1:
                         break;
                     case 2:
+                       fragment = new FoundFragment();
                         break;
                     case 3:
                         fragment = new ProfileFragment();
